@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface MyHandlerAdapter {
-    boolean supports(Object handler);
+    boolean supports(Object handler); //컨트롤러가 넘어왔을 때 핸들러 지원
 
     ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException;
 }
