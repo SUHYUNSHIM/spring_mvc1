@@ -17,11 +17,13 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
         return (handler instanceof ControllerV3); //ControlkerV3의 인스턴스인지 참 거짓 반환
     }
 
-    @Override
+    @Override  //handler 호출, 결과를 modelview type에 맞게 반환
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         ControllerV3 controller = (ControllerV3) handler; //handler는 instance 필터링을 거친 것이다.
         Map<String, String> paramMap = createParamMap(request);//param Map을 request를 받아서 생성.
-        return null;
+        ModelView mv = controller.process(paramMap);
+
+        return mv;
     }
 
     private Map<String, String> createParamMap(HttpServletRequest request) {
