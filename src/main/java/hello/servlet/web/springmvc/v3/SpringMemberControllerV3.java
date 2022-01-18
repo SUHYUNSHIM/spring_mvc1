@@ -16,12 +16,12 @@ import java.util.List;
 public class SpringMemberControllerV3 {
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
-    @GetMapping("/new-form")
+    @GetMapping("/new-form") //Get 메소드로만 
     public String newform(){
         return "new-form";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save") //Post 메소드로만
     public String save(
         @RequestParam("username") String username,
         @RequestParam("age") int age,
